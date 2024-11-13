@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto";
+}
+
+main {
+  height: 100vh;
+  display: flex;
+}
+
+.img-container {
+  width: 50%;
+  background-color: #e7eefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.logo {
+  padding: 2rem 6rem;
+  position: absolute;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.grey-font {
+  color: #808080;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Form */
+
+.form-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+}
+
+form p {
+  text-align: center;
+}
+
+form > p:nth-child(2) {
+  margin: 1rem 0;
+}
+
+form > div {
+  display: flex;
+  gap: 12px;
+}
+
+form > div > div {
+  width: 50%;
+}
+
+form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+form input,
+form select {
+  background-color: #ecf3fe;
+  font-size: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  margin: 4px 0 12px 0;
+}
+
+form button#create-acc {
+  color: #fff;
+  background-color: #0e63f4;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  margin: 0.5rem 0 1rem 0;
+  cursor: pointer;
+}
