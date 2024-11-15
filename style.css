@@ -12,6 +12,15 @@ main {
   display: flex;
 }
 
+.grey-font {
+  color: #808080;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
 .img-container {
   width: 50%;
   background-color: #e7eefe;
@@ -21,8 +30,8 @@ main {
 }
 
 img {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 40vw;
+  max-height: auto;
 }
 
 .logo {
@@ -33,15 +42,6 @@ img {
 .title {
   font-weight: 600;
   font-size: 1.5rem;
-}
-
-.grey-font {
-  color: #808080;
-  font-size: 1rem;
-}
-
-a {
-  text-decoration: none;
 }
 
 /* Form */
@@ -78,13 +78,13 @@ form > div > div {
   width: 50%;
 }
 
+form > div:not(:first-of-type) {
+  margin-top: 12px;
+}
+
 form label {
   font-size: 0.9rem;
   font-weight: 500;
-}
-
-form > div:not(:first-of-type) {
-  margin-top: 12px;
 }
 
 form input,
@@ -95,8 +95,12 @@ form select {
   padding: 1rem;
   border: none;
   border-radius: 4px;
-  outline: none;
   margin-top: 4px;
+  outline: none;
+}
+
+#zip-code {
+  text-transform: uppercase;
 }
 
 form button#create-acc {
@@ -112,9 +116,7 @@ form button#create-acc {
   cursor: pointer;
 }
 
-#zip-code {
-  text-transform: uppercase;
-}
+/* Validation */
 
 .validationMessage {
   display: none;
@@ -127,6 +129,8 @@ form button#create-acc {
   display: block;
   margin-top: 4px;
 }
+
+/* Password */
 
 div > span {
   position: relative;
@@ -145,4 +149,61 @@ div > span {
 
 .darken {
   color: #000;
+}
+
+/* Dialog */
+
+#successDialog {
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#successDialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#successDialog > div {
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  margin: 100px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#successDialog > div > img {
+  width: 140px;
+  height: auto;
+}
+
+#successDialog > div > p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+#closeDialog {
+  background-color: #000;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 16px;
+  padding: 8px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  cursor: pointer;
 }

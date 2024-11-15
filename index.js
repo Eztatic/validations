@@ -23,6 +23,7 @@ const emailValidation = (type) => {
     } else {
       validation.innerText = "";
       toggleValMsg(false, email, validation);
+      return true;
     }
   }
 
@@ -30,7 +31,7 @@ const emailValidation = (type) => {
     email.removeEventListener("input", validateEmail);
     email.addEventListener("input", validateEmail);
   } else if ("click") {
-    validateEmail();
+    return validateEmail() ? true : undefined;
   }
 };
 
@@ -45,6 +46,7 @@ const countryValidation = (type) => {
     } else {
       validation.innerText = "";
       toggleValMsg(false, country, validation);
+      return true;
     }
   }
 
@@ -52,7 +54,7 @@ const countryValidation = (type) => {
     country.removeEventListener("input", validateCountry);
     country.addEventListener("input", validateCountry);
   } else if ("click") {
-    validateCountry();
+    return validateCountry() ? true : undefined;
   }
 };
 
@@ -72,6 +74,7 @@ const zipCodeValidation = (type) => {
     } else {
       validation.innerText = "";
       toggleValMsg(false, zipCode, validation);
+      return true;
     }
   }
 
@@ -79,7 +82,7 @@ const zipCodeValidation = (type) => {
     zipCode.removeEventListener("input", validateZipCode);
     zipCode.addEventListener("input", validateZipCode);
   } else if ("click") {
-    validateZipCode();
+    return validateZipCode() ? true : undefined;
   }
 };
 
@@ -119,6 +122,7 @@ const passwordValidation = (type) => {
     } else {
       validation.innerText = "";
       toggleValMsg(false, password, validation);
+      return true;
     }
   }
 
@@ -132,6 +136,7 @@ const passwordValidation = (type) => {
     } else {
       validation1.innerText = "";
       toggleValMsg(false, confirmPassword, validation1);
+      return true;
     }
   }
 
@@ -143,8 +148,8 @@ const passwordValidation = (type) => {
     confirmPassword.removeEventListener("input", validateConfirmPwd);
     confirmPassword.addEventListener("input", validateConfirmPwd);
   } else if ("click") {
-    validatePassword();
-    validateConfirmPwd();
+    const [...values] = [validatePassword(), validateConfirmPwd()];
+    return values.every((val) => val === true);
   }
 };
 
@@ -157,8 +162,20 @@ passwordValidation("input");
 const submitBtn = document.querySelector("#create-acc");
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  emailValidation("click");
-  countryValidation("click");
-  zipCodeValidation("click");
-  passwordValidation("click");
+  const dialog = document.querySelector("#successDialog");
+  const [...values] = [
+    emailValidation("click"),
+    countryValidation("click"),
+    zipCodeValidation("click"),
+    passwordValidation("click"),
+  ];
+
+  document.querySelector("#closeDialog").addEventListener("click", () => {
+    dialog.close();
+  });
+
+  if (values.every((val) => val === true)) {
+    dialog.showModal();
+    document.querySelector("form").reset();
+  }
 });
