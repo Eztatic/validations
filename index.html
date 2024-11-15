@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="./style.css">
       <title>Validation Testing</title>
-      <script src="./index.js"></script>
+      <script src="./index.js" defer></script>
 </head>
 <body>
       <p class="title logo">Watched</p>
@@ -17,30 +17,44 @@
                   <form novalidate>
                         <p class="title">Sign up on Watched</p>
                         <p class="grey-font">Create an account on Watched to subscribe and gain access to the content.</p>
-
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="sample@mail.com">
                         <div>
+                              <label for="email">Email:</label>
+                              <br>
+                              <input type="email" id="email" name="email" placeholder="sample@mail.com" required>
+                              <p class="validationMessage"></p>
+                        </div>
+                        <div class="second-div">
                               <div>
                                     <label for="country">Country:</label>
                                     <br>
-                                    <select id="country" name="country">
+                                    <select id="country" name="country" required>
                                           <option value="">Select Country</option>
                                           <option value="us">United States</option>
                                           <option value="ca">Canada</option>
-                                          <option value="gb">United Kingdom</option>
+                                          <option value="uk">United Kingdom</option>
                                     </select>
+                                    <p class="validationMessage"></p>
                               </div>
                               <div>
                                     <label for="zip-code">Zip Code:</label>
                                     <br>
-                                    <input type="number" id="zip-code" name="zip-code" placeholder="0000">
+                                    <input type="text" id="zip-code" name="zip-code" placeholder="0000" >
+                                    <p class="validationMessage" required></p>
                               </div>
                         </div>
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password">
-                        <label for="confirm-password">Confirm Password:</label>
-                        <input type="password" id="confirm-password" name="confirm-password">
+                        <div>
+                              <label for="password">Password:</label>
+                              <span>
+                                    <input type="password" id="password" name="password" required>
+                                    <span class="seeIcon">👁</span>
+                              </span>
+                              <p class="validationMessage"></p>
+                        </div>
+                        <div>
+                              <label for="confirm-password">Confirm Password:</label>
+                              <input type="password" id="confirm-password" name="confirm-password" required>
+                              <p class="validationMessage"></p>
+                        </div>
                         <button type="submit" id="create-acc">Create Account</button>
 
                         <p class="grey-font">By submitting this form, you accept our <a href="#">Terms of Service</a></p>
